@@ -123,35 +123,35 @@ describe("/threads endpoint", () => {
     });
   });
 
-  // describe("when GET /threads/{id}", () => {
-  //   it("should response 404 when thread is not found", async () => {
-  //     const server = await createServer(container);
+  describe("when GET /threads/{id}", () => {
+    it("should response 404 when thread is not found", async () => {
+      const server = await createServer(container);
 
-  //     const response = await server.inject({
-  //       method: "GET",
-  //       url: "/threads/thread-123",
-  //     });
+      const response = await server.inject({
+        method: "GET",
+        url: "/threads/thread-123",
+      });
 
-  //     const responseJson = JSON.parse(response.payload);
-  //     expect(response.statusCode).toEqual(404);
-  //     expect(responseJson.status).toEqual("fail");
-  //     expect(responseJson.message).toEqual("thread tidak ditemukan");
-  //   });
+      const responseJson = JSON.parse(response.payload);
+      expect(response.statusCode).toEqual(404);
+      expect(responseJson.status).toEqual("fail");
+      expect(responseJson.message).toEqual("thread tidak ditemukan");
+    });
 
-  //   it("should response 200 and array of thread", async () => {
-  //     await UsersTableTestHelper.addUser({});
-  //     await ThreadsTableTestHelper.addThread({});
+    it("should response 200 and array of thread", async () => {
+      await UsersTableTestHelper.addUser({});
+      await ThreadsTableTestHelper.addThread({});
 
-  //     const server = await createServer(container);
+      const server = await createServer(container);
 
-  //     const response = await server.inject({
-  //       method: "GET",
-  //       url: `/threads/thread-123`,
-  //     });
+      const response = await server.inject({
+        method: "GET",
+        url: `/threads/thread-123`,
+      });
 
-  //     const responseJson = JSON.parse(response.payload);
-  //     expect(response.statusCode).toEqual(200);
-  //     expect(responseJson.data.thread).toBeDefined();
-  //   });
-  // });
+      const responseJson = JSON.parse(response.payload);
+      expect(response.statusCode).toEqual(200);
+      expect(responseJson.data.thread).toBeDefined();
+    });
+  });
 });
