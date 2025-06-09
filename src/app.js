@@ -7,5 +7,3 @@ const container = require("./Infrastructures/container");
   await server.start();
   console.log(`server start at ${server.info.uri}`);
 })();
-
-// add comment
