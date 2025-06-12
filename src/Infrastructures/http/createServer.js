@@ -20,6 +20,8 @@ const createServer = async (container) => {
     },
   ]);
 
+  // add new line to check ci / cd
+
   server.auth.strategy("forumapi_jwt", "jwt", {
     keys: process.env.ACCESS_TOKEN_KEY,
     verify: {
