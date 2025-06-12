@@ -20,8 +20,6 @@ const createServer = async (container) => {
     },
   ]);
 
-  // add new line to check ci / cd
-
   server.auth.strategy("forumapi_jwt", "jwt", {
     keys: process.env.ACCESS_TOKEN_KEY,
     verify: {
@@ -63,7 +61,7 @@ const createServer = async (container) => {
 
   server.route({
     method: "GET",
-    path: "/",
+    path: "/hello",
     handler: () => ({
       value: "Hello world!",
     }),
