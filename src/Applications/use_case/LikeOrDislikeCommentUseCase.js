@@ -9,8 +9,11 @@ class LikeOrDislikeCommentUseCase {
 
   async execute(userId, useCaseParams) {
     const { threadId, commentId } = useCaseParams;
-    await this._threadRepository.checkThreadAvailability(threadId);
-    await this._commentRepository.checkCommentAvailability(commentId);
+    await this._threadRepository.verifyAvailableThread(threadId);
+    await this._commentRepository.verifyAvailableCommentInThread(
+      commentId,
+      threadId
+    );
 
     const like = new Like({
       commentId,

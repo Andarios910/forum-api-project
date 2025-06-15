@@ -18,10 +18,10 @@ describe("LikeOrDislikeCommentUseCase", () => {
     const mockCommentLikeRepository = new CommentLikeRepository();
 
     /** mocking needed function */
-    mockThreadRepository.checkThreadAvailability = jest.fn(() =>
+    mockThreadRepository.verifyAvailableThread = jest.fn(() =>
       Promise.resolve()
     );
-    mockCommentRepository.checkCommentAvailability = jest.fn(() =>
+    mockCommentRepository.verifyAvailableCommentInThread = jest.fn(() =>
       Promise.resolve()
     );
     mockCommentLikeRepository.verifyUserCommentLike = jest.fn(() =>
@@ -43,10 +43,10 @@ describe("LikeOrDislikeCommentUseCase", () => {
     });
 
     // Assert
-    expect(mockThreadRepository.checkThreadAvailability).toBeCalledWith(
+    expect(mockThreadRepository.verifyAvailableThread).toBeCalledWith(
       "thread-123"
     );
-    expect(mockCommentRepository.checkCommentAvailability).toBeCalledWith(
+    expect(mockCommentRepository.verifyAvailableCommentInThread).toBeCalledWith(
       "comment-123",
       "thread-123"
     );
@@ -69,10 +69,10 @@ describe("LikeOrDislikeCommentUseCase", () => {
     const mockCommentLikeRepository = new CommentLikeRepository();
 
     /** mocking needed function */
-    mockThreadRepository.checkThreadAvailability = jest.fn(() =>
+    mockThreadRepository.verifyAvailableThread = jest.fn(() =>
       Promise.resolve()
     );
-    mockCommentRepository.checkCommentAvailability = jest.fn(() =>
+    mockCommentRepository.verifyAvailableCommentInThread = jest.fn(() =>
       Promise.resolve()
     );
     mockCommentLikeRepository.verifyUserCommentLike = jest.fn(() =>
@@ -94,10 +94,10 @@ describe("LikeOrDislikeCommentUseCase", () => {
     });
 
     // Assert
-    expect(mockThreadRepository.checkThreadAvailability).toBeCalledWith(
+    expect(mockThreadRepository.verifyAvailableThread).toBeCalledWith(
       "thread-123"
     );
-    expect(mockCommentRepository.checkCommentAvailability).toBeCalledWith(
+    expect(mockCommentRepository.verifyAvailableCommentInThread).toBeCalledWith(
       "comment-123",
       "thread-123"
     );
